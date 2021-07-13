@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "muevete-reto-grupal",
+    "slug": "muevete-reto-grupal",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "muevete-reto-grupal"
+}
