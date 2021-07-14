@@ -24,11 +24,11 @@ function signIn(dispatch) {
 }
 
 function signUp(dispatch) {
-  return async function signUpDispatch(username, email, password, isEntity) {
+  return async function signUpDispatch(username, email, password) {
     dispatch({ type: SIGN_UP_START });
     try {
-      await axios.get(`${Endpoint}authentication/register`, {
-        params: { username, email, password, isEntity },
+      await axios.get(`register endpoint`, {
+        params: { username, email, password },
       });
       signIn(dispatch)(email, password);
     } catch (error) {
