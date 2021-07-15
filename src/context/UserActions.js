@@ -10,12 +10,13 @@ import {
 } from "./types";
 
 function signIn(dispatch) {
-  return async function signInDispatch(email, password) {
+  return async function signInDispatch(email = "", password = "") {
     dispatch({ type: LOG_IN_START });
     try {
-      const { data } = await axios.get(`login endpoint`, {
-        params: { email, password },
-      });
+      // const { data } = await axios.get(`login endpoint`, {
+      //   params: { email, password },
+      // });
+      const data = "alex";
       dispatch({ type: LOG_IN_SUCCESS, payload: data });
     } catch (error) {
       dispatch({ type: LOG_IN_FAIL, payload: error.message });
