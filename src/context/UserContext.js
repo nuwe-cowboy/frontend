@@ -45,8 +45,6 @@ const INITIAL_STATE = {
   authError: null,
   authLoading: null,
   name: null,
-  token: null,
-  isEntity: null,
 };
 
 function UserProvider({ children }) {
