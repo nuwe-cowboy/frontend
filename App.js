@@ -1,27 +1,15 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 
-import { useUserActions, useUserState } from "./src/context/UserContext";
-import { Auth } from "./src/screens";
-import { Events } from "./src/components";
-import { Text, TouchableOpacity, View } from "react-native";
+import { View } from "react-native";
+import { useUserState } from "./src/context/UserContext";
+import { Auth, Main } from "./src/screens";
 
 export default function App() {
   const { loggedIn } = useUserState();
-  const { logOff } = useUserActions();
   return (
-    <View>
-      {loggedIn ? (
-        <>
-          <Events />
-          <TouchableOpacity onPress={() => logOff()}>
-            <Text>Salir</Text>
-          </TouchableOpacity>
-        </>
-      ) : (
-        <Auth />
-      )}
-
+    <View style={{ height: "100vh", width: "100vw" }}>
+      {loggedIn ? <Main /> : <Auth />}
       <StatusBar style="auto" />
     </View>
   );
