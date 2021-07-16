@@ -16,6 +16,7 @@ export function Auth() {
   const [surname, setSurame] = useState("");
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
+
   return (
     <AuthContainer>
       <View style={{ flex: 1 }}>
