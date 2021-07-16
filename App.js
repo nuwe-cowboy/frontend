@@ -2,15 +2,15 @@ import React from "react";
 import { StatusBar } from "expo-status-bar";
 
 import { useUserActions, useUserState } from "./src/context/UserContext";
-import { Auth, Events } from "./src/screens";
+import { Auth } from "./src/screens";
+import { Events } from "./src/components";
 import { Text, TouchableOpacity, View } from "react-native";
 
 export default function App() {
   const { loggedIn } = useUserState();
   const { logOff } = useUserActions();
   return (
-    <View style={styles.container}>
-      <Text>Alex</Text>
+    <View>
       {loggedIn ? (
         <>
           <Events />
@@ -26,12 +26,3 @@ export default function App() {
     </View>
   );
 }
-
-const styles = {
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-};
