@@ -36,6 +36,7 @@ export const AuthInput = styled.TextInput`
   border-width: 0.5px;
   border-radius: 5px;
   margin-bottom: 6px;
+  border-color: #b5b5b5;
 `;
 
 export const AuthButton = styled.TouchableOpacity`
