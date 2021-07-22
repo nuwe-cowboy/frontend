@@ -6,3 +6,5 @@ export const SIGN_UP_START = "SIGN_UP_START";
 export const SIGN_UP_FAIL = "SIGN_UP_FAIL";
 export const LOG_OFF = "LOG_OFF";
 export const REMOVE_AUTH_ERROR = "REMOVE_AUTH_ERROR";
+export const REQUEST_AUTH = "REQUEST_AUTH";
+export const UNREQUEST_AUTH = "UNREQUEST_AUTH";
