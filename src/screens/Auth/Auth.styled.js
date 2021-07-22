@@ -25,15 +25,6 @@ export const AuthContainer = styled.View`
   padding: 0 1rem;
 `;
 
-export const AuthLogo = styled.Image`
-  width: 163px;
-  height: 54px;
-`;
-
-export const LogoContainer = styled.View`
-  padding-top: 2rem;
-`;
-
 export const AuthFormContainer = styled.View`
   width: 100%;
 `;
