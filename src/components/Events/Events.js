@@ -83,9 +83,7 @@ function EventUserState({ isParticipating, dorsal }) {
   return (
     <EventUserStateContainer style={styles.flexView}>
       <EventText>
-        {isParticipating
-          ? `¡Gracias por participar!\nDorsal número ${dorsal}`
-          : ""}
+        {isParticipating && `¡Gracias por participar!\nDorsal número ${dorsal}`}
       </EventText>
 
       {isParticipating ? (
