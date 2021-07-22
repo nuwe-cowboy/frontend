@@ -15,6 +15,7 @@ import * as Progress from "react-native-progress";
 
 // mock event dataset
 import data from "../../helpers/eventData";
+import { useUserActions, useUserState } from "../../context/UserContext";
 
 export function Events() {
   return (
@@ -77,6 +78,8 @@ function EventData({ title, goal, acum, description }) {
 }
 
 function EventUserState({ isParticipating, dorsal }) {
+  const { loggedIn } = useUserState();
+  const { requestAuth } = useUserActions();
   return (
     <EventUserStateContainer style={styles.flexView}>
       <EventText>
@@ -84,12 +87,17 @@ function EventUserState({ isParticipating, dorsal }) {
           ? `¡Gracias por participar!\nDorsal número ${dorsal}`
           : ""}
       </EventText>
+
       {isParticipating ? (
         <EventActionBtn adder onPress={() => console.log("Add kms")}>
           <TextButton>sumar kms</TextButton>
         </EventActionBtn>
       ) : (
-        <EventActionBtn onPress={() => console.log("Get new dorsal")}>
+        <EventActionBtn
+          onPress={() => {
+            loggedIn ? console.log("Get new dorsal") : requestAuth();
+          }}
+        >
           <TextButton>registrarme</TextButton>
         </EventActionBtn>
       )}
