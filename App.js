@@ -1,12 +1,13 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 
-import { View } from "react-native";
-import { useUserState } from "./src/context/UserContext";
-import { Auth, Main, Newsletter } from "./src/screens";
-
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { View } from "react-native";
+
+import { useUserState } from "./src/context/UserContext";
+import { Auth, Main, Newsletter } from "./src/screens";
+import { Header } from "./src/components";
 
 const Tab = createBottomTabNavigator();
 
@@ -14,6 +15,7 @@ export default function App() {
   const { loggedIn, authRequested } = useUserState();
   return (
     <View style={{ height: "100vh", width: "100vw" }}>
+      <Header />
       {authRequested && <Auth />}
 
       <NavigationContainer>
