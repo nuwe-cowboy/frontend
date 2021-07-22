@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import { MainMenu } from "../../components/MainMenu/MainMenu";
 import { useUserActions } from "../../context/UserContext";
 import {
+  AuthBg,
   AuthButton,
   AuthContainer,
   AuthInput,
@@ -15,15 +16,18 @@ import {
 
 export function Auth() {
   const [isLogin, setIsLogin] = useState(true);
-  const { signIn } = useUserActions();
+  const { signIn, signUp, unRequestAuth } = useUserActions();
   const [name, setName] = useState("");
   const [surname, setSurame] = useState("");
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
 
   return (
-    <>
+    <AuthBg>
       <AuthContainer>
+        <TouchableOpacity onPress={() => unRequestAuth()}>
+          <Text>X</Text>
+        </TouchableOpacity>
         <LogoContainer style={{ flex: 1 }}>
           <AuthLogo source={require("../../assets/logo_wide.png")} />
         </LogoContainer>
@@ -59,6 +63,8 @@ export function Auth() {
             value={password}
             onChangeText={setPassword}
           />
+        </AuthFormContainer>
+        <View style={{ flex: 1, width: "100%" }}>
           <TouchableOpacity onPress={() => setIsLogin(!isLogin)}>
             <Text style={{ textAlign: "center", marginTop: 6 }}>
               {isLogin
@@ -69,10 +75,9 @@ export function Auth() {
           <AuthButton onPress={() => signIn()}>
             <TextButton>acceder</TextButton>
           </AuthButton>
-        </AuthFormContainer>
+        </View>
       </AuthContainer>
-      <MainMenu></MainMenu>
-    </>
+    </AuthBg>
   );
 }
 
