@@ -7,9 +7,7 @@ import {
   AuthButton,
   AuthContainer,
   AuthInput,
-  AuthLogo,
   HeaderText,
-  LogoContainer,
   AuthFormContainer,
   TextButton,
 } from "./Auth.styled";
@@ -28,9 +26,6 @@ export function Auth() {
         <TouchableOpacity onPress={() => unRequestAuth()}>
           <Text>X</Text>
         </TouchableOpacity>
-        <LogoContainer style={{ flex: 1 }}>
-          <AuthLogo source={require("../../assets/logo_wide.png")} />
-        </LogoContainer>
         <AuthFormContainer style={{ flex: 5 }}>
           <HeaderText>
             {isLogin ? "Acceso de usuario" : "Registro de usuario"}
