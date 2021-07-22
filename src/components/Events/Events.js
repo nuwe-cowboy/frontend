@@ -82,28 +82,27 @@ function EventUserState({ isParticipating, dorsal }) {
   const { requestAuth } = useUserActions();
   return (
     <EventUserStateContainer style={styles.flexView}>
-      {isParticipating && (
-        <Text>
-          <EventText>
-            ¡Gracias por participar!{"\n"}Dorsal número&nbsp;
-          </EventText>
-          <EventText style={{ fontWeight: "bold" }}>{dorsal}</EventText>
-        </Text>
-      )}
+      <Text>
+        {isParticipating && (
+          <>
+            <EventText>
+              ¡Gracias por participar!{"\n"}Dorsal número&nbsp;
+            </EventText>
+            <EventText style={{ fontWeight: "bold" }}>{dorsal}</EventText>
+          </>
+        )}
+      </Text>
 
-      {isParticipating ? (
-        <EventActionBtn adder onPress={() => console.log("Add kms")}>
-          <TextButton>sumar kms</TextButton>
-        </EventActionBtn>
-      ) : (
-        <EventActionBtn
-          onPress={() => {
-            loggedIn ? console.log("Get new dorsal") : requestAuth();
-          }}
-        >
-          <TextButton>registrarme</TextButton>
-        </EventActionBtn>
-      )}
+      <EventActionBtn
+        adder={isParticipating}
+        onPress={() =>
+          loggedIn
+            ? console.log(isParticipating ? "Add kms" : "Get new dorsal")
+            : requestAuth()
+        }
+      >
+        <TextButton>{isParticipating ? "sumar kms" : "registrarme"}</TextButton>
+      </EventActionBtn>
     </EventUserStateContainer>
   );
 }
