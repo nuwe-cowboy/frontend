@@ -17,7 +17,7 @@ export default function App() {
       {authRequested && <Auth />}
 
       <NavigationContainer>
-        <Tab.Navigator>
+        <Tab.Navigator tabBarOptions={style.tabBarOptions}>
           <Tab.Screen name="Eventos" component={Main} />
           {loggedIn && <Tab.Screen name="Mis Eventos" component={Main} />}
           <Tab.Screen name="Newsletter" component={Newsletter} />
@@ -28,3 +28,12 @@ export default function App() {
     </View>
   );
 }
+
+const style = {
+  tabBarOptions: {
+    labelStyle: {
+      marginBottom: 15,
+      fontSize: 12,
+    },
+  },
+};
