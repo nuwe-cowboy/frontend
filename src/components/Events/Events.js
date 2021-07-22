@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View, Text } from "react-native";
 import {
   EventActionBtn,
   EventCard,
@@ -82,9 +82,14 @@ function EventUserState({ isParticipating, dorsal }) {
   const { requestAuth } = useUserActions();
   return (
     <EventUserStateContainer style={styles.flexView}>
-      <EventText>
-        {isParticipating && `¡Gracias por participar!\nDorsal número ${dorsal}`}
-      </EventText>
+      {isParticipating && (
+        <Text>
+          <EventText>
+            ¡Gracias por participar!{"\n"}Dorsal número&nbsp;
+          </EventText>
+          <EventText style={{ fontWeight: "bold" }}>{dorsal}</EventText>
+        </Text>
+      )}
 
       {isParticipating ? (
         <EventActionBtn adder onPress={() => console.log("Add kms")}>
