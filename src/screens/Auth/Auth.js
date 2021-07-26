@@ -15,8 +15,8 @@ export function Auth() {
   const [isLogin, setIsLogin] = useState(true);
   const { signIn, signUp, unRequestAuth } = useUserActions();
   const [name, setName] = useState("");
-  const [surname, setSurame] = useState("");
-  const [mail, setMail] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   return (
@@ -34,22 +34,22 @@ export function Auth() {
               <FormFragment
                 label="Nombre"
                 placeholder="Introduce tu nombre"
-                value={surname}
-                onChangeText={setSurame}
+                value={name}
+                onChangeText={setName}
               />
               <FormFragment
                 label="Apellidos"
                 placeholder="Introduce tus apellidos"
-                value={name}
-                onChangeText={setName}
+                value={lastName}
+                onChangeText={setLastName}
               />
             </>
           )}
           <FormFragment
             label="Correo electrónico"
             placeholder="Introduce tu email"
-            value={mail}
-            onChangeText={setMail}
+            value={email}
+            onChangeText={setEmail}
           />
           <FormFragment
             label="Contraseña"
@@ -66,7 +66,11 @@ export function Auth() {
                 : "Ya tengo cuenta, acceder"}
             </Text>
           </TouchableOpacity>
-          <AuthButton onPress={() => signIn()}>
+          <AuthButton
+            onPress={() =>
+              isLogin ? signIn() : signUp(name, lastName, password, email)
+            }
+          >
             <TextButton>acceder</TextButton>
           </AuthButton>
         </View>
