@@ -8,14 +8,15 @@ import {
   AuthInput,
   HeaderText,
   AuthFormContainer,
+  AuthButtonText,
 } from "./Auth.styled";
 
 export function Auth() {
   const [isLogin, setIsLogin] = useState(true);
   const { signIn, signUp, unRequestAuth } = useUserActions();
   const [name, setName] = useState("");
-  const [surname, setSurame] = useState("");
-  const [mail, setMail] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   return (
@@ -31,11 +32,27 @@ export function Auth() {
           {isLogin ? "Acceso de usuario" : "Registro de usuario"}
         </HeaderText>
         <AuthFormContainer>
+          {!isLogin && (
+            <>
+              <FormFragment
+                label="Nombre"
+                placeholder="Introduce tu nombre"
+                value={name}
+                onChangeText={setName}
+              />
+              <FormFragment
+                label="Apellidos"
+                placeholder="Introduce tus apellidos"
+                value={lastName}
+                onChangeText={setLastName}
+              />
+            </>
+          )}
           <FormFragment
             label="Correo electrónico"
             placeholder="Introduce tu email"
-            value={mail}
-            onChangeText={setMail}
+            value={email}
+            onChangeText={setEmail}
           />
           <FormFragment
             label="Contraseña"
@@ -43,22 +60,6 @@ export function Auth() {
             value={password}
             onChangeText={setPassword}
           />
-          {!isLogin && (
-            <>
-              <FormFragment
-                label="Nombre"
-                placeholder="Introduce tu nombre"
-                value={surname}
-                onChangeText={setSurame}
-              />
-              <FormFragment
-                label="Apellidos"
-                placeholder="Introduce tus apellidos"
-                value={name}
-                onChangeText={setName}
-              />
-            </>
-          )}
         </AuthFormContainer>
         <TouchableOpacity onPress={() => setIsLogin(!isLogin)}>
           <Text style={{ textAlign: "center", marginTop: 6, fontSize: "16px" }}>
@@ -67,7 +68,13 @@ export function Auth() {
               : "Ya tengo cuenta, acceder"}
           </Text>
         </TouchableOpacity>
-        <AuthButton onPress={() => signIn()}>acceder</AuthButton>
+        <AuthButton
+          onPress={() =>
+            isLogin ? signIn() : signUp(name, lastName, password, email)
+          }
+        >
+          <AuthButtonText>acceder</AuthButtonText>
+        </AuthButton>
       </AuthContainer>
     </AuthBg>
   );
