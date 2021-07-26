@@ -1,5 +1,5 @@
 import React from "react";
-import { Text } from "react-native";
+import { Newsletters } from "../../components";
 import { useUserActions } from "../../context";
 import { MainContainer } from "./Newsletter.styled";
 
@@ -7,7 +7,7 @@ export const Newsletter = () => {
   const { logOff } = useUserActions();
   return (
     <MainContainer>
-      <Text>Newsletter</Text>
+      <Newsletters />
     </MainContainer>
   );
 };
