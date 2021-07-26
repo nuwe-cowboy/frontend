@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, StyleSheet, View, Text } from "react-native";
+import { ScrollView, View, Text } from "react-native";
 import {
   EventActionBtn,
   EventCard,
@@ -16,6 +16,7 @@ import * as Progress from "react-native-progress";
 // mock event dataset
 import data from "../../helpers/eventData";
 import { useUserActions, useUserState } from "../../context/UserContext";
+import { Theme } from "../../helpers/Theme";
 
 export function Events() {
   return (
@@ -40,7 +41,7 @@ export function Events() {
 
 function Event(props) {
   return (
-    <EventCard style={styles.cardShadow}>
+    <EventCard style={Theme.cardShadow}>
       <EventData
         title={props.title}
         goal={props.goal}
@@ -58,7 +59,7 @@ function Event(props) {
 function EventData({ title, goal, acum, description }) {
   return (
     <>
-      <View style={styles.flexView}>
+      <View style={Theme.flexView}>
         <EventTitle>{title}</EventTitle>
         <EventGoal>{goal} kms</EventGoal>
       </View>
@@ -81,7 +82,7 @@ function EventUserState({ isParticipating, dorsal }) {
   const { loggedIn } = useUserState();
   const { requestAuth } = useUserActions();
   return (
-    <EventUserStateContainer style={styles.flexView}>
+    <EventUserStateContainer style={Theme.flexView}>
       <Text>
         {isParticipating && (
           <>
@@ -106,21 +107,3 @@ function EventUserState({ isParticipating, dorsal }) {
     </EventUserStateContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  cardShadow: {
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.23,
-    shadowRadius: 2.62,
-    elevation: 4,
-  },
-  flexView: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-});
