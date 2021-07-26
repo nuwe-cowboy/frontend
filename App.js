@@ -5,7 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { View } from "react-native";
 
-import { useUserState } from "./src/context/UserContext";
+import { useUserState } from "./src/context";
 import { Auth, Main, Newsletter } from "./src/screens";
 import { Header } from "./src/components";
 
