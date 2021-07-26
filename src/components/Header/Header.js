@@ -1,6 +1,6 @@
 import React from "react";
 import { Text } from "react-native";
-import { useUserActions, useUserState } from "../../context/UserContext";
+import { useUserActions, useUserState } from "../../context";
 import { Logo, HeaderContainer } from "./Header.styled";
 
 export function Header() {

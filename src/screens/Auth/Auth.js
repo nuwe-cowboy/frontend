@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
-import { MainMenu } from "../../components/MainMenu/MainMenu";
-import { useUserActions } from "../../context/UserContext";
+import { useUserActions } from "../../context";
 import {
   AuthBg,
   AuthButton,
