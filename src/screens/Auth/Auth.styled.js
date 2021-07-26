@@ -1,21 +1,28 @@
 import styled from "styled-components/native";
 import { Theme } from "../../helpers/Theme";
 
+export const AuthBg = styled.View`
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.2);
+  flex: 1;
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const AuthContainer = styled.View`
   display: flex;
-  flex: 1;
   align-items: center;
+  background: ${Theme.background};
+  width: 90%;
+  border-radius: 15px;
+  height: 80%;
   justify-content: space-around;
   padding: 0 1rem;
-`;
-
-export const AuthLogo = styled.Image`
-  width: 163px;
-  height: 54px;
-`;
-
-export const LogoContainer = styled.View`
-  padding-top: 2rem;
 `;
 
 export const AuthFormContainer = styled.View`
@@ -36,7 +43,7 @@ export const AuthInput = styled.TextInput`
   border-width: 0.5px;
   border-radius: 5px;
   margin-bottom: 6px;
-  border-color: #b5b5b5;
+  border-color: ${Theme.borderInput};
 `;
 
 export const AuthButton = styled.TouchableOpacity`

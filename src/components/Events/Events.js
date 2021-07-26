@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View, Text } from "react-native";
 import {
   EventActionBtn,
   EventCard,
@@ -15,6 +15,7 @@ import * as Progress from "react-native-progress";
 
 // mock event dataset
 import data from "../../helpers/eventData";
+import { useUserActions, useUserState } from "../../context/UserContext";
 
 export function Events() {
   return (
@@ -77,22 +78,31 @@ function EventData({ title, goal, acum, description }) {
 }
 
 function EventUserState({ isParticipating, dorsal }) {
+  const { loggedIn } = useUserState();
+  const { requestAuth } = useUserActions();
   return (
     <EventUserStateContainer style={styles.flexView}>
-      <EventText>
-        {isParticipating
-          ? `¡Gracias por participar!\nDorsal número ${dorsal}`
-          : ""}
-      </EventText>
-      {isParticipating ? (
-        <EventActionBtn adder onPress={() => console.log("Add kms")}>
-          <TextButton>sumar kms</TextButton>
-        </EventActionBtn>
-      ) : (
-        <EventActionBtn onPress={() => console.log("Get new dorsal")}>
-          <TextButton>registrarme</TextButton>
-        </EventActionBtn>
-      )}
+      <Text>
+        {isParticipating && (
+          <>
+            <EventText>
+              ¡Gracias por participar!{"\n"}Dorsal número&nbsp;
+            </EventText>
+            <EventText style={{ fontWeight: "bold" }}>{dorsal}</EventText>
+          </>
+        )}
+      </Text>
+
+      <EventActionBtn
+        adder={isParticipating}
+        onPress={() =>
+          loggedIn
+            ? console.log(isParticipating ? "Add kms" : "Get new dorsal")
+            : requestAuth()
+        }
+      >
+        <TextButton>{isParticipating ? "sumar kms" : "registrarme"}</TextButton>
+      </EventActionBtn>
     </EventUserStateContainer>
   );
 }

@@ -12,7 +12,7 @@ export const EventCard = styled.View`
   width: 100%;
   margin: 0.5rem 0;
   border-radius: 5px;
-  background: #fafafa;
+  background: ${Theme.background};
 `;
 
 export const EventText = styled.Text`

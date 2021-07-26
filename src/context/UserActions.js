@@ -7,7 +7,21 @@ import {
   SIGN_UP_FAIL,
   SIGN_UP_START,
   REMOVE_AUTH_ERROR,
+  REQUEST_AUTH,
+  UNREQUEST_AUTH,
 } from "./types";
+
+function requestAuth(dispatch) {
+  return function requestAuthDispatch() {
+    dispatch({ type: REQUEST_AUTH });
+  };
+}
+
+function unRequestAuth(dispatch) {
+  return function unRequestAuthDispatch() {
+    dispatch({ type: UNREQUEST_AUTH });
+  };
+}
 
 function signIn(dispatch) {
   return async function signInDispatch(email = "", password = "") {
@@ -50,4 +64,11 @@ function removeAuthError(dispatch) {
   };
 }
 
-export default { signIn, signUp, logOff, removeAuthError };
+export default {
+  requestAuth,
+  unRequestAuth,
+  signIn,
+  signUp,
+  logOff,
+  removeAuthError,
+};

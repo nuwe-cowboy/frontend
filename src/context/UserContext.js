@@ -9,6 +9,8 @@ import {
   SIGN_UP_FAIL,
   SIGN_UP_START,
   REMOVE_AUTH_ERROR,
+  REQUEST_AUTH,
+  UNREQUEST_AUTH,
 } from "./types";
 
 const UserStateContext = React.createContext();
@@ -16,6 +18,10 @@ const UserDispatchContext = React.createContext();
 
 function userReducer(state, action) {
   switch (action.type) {
+    case REQUEST_AUTH:
+      return { ...state, authRequested: true };
+    case UNREQUEST_AUTH:
+      return { ...state, authRequested: false };
     case LOG_IN_START:
       return { ...state, authLoading: true };
     case SIGN_UP_START:
@@ -26,6 +32,7 @@ function userReducer(state, action) {
         loggedIn: true,
         authError: null,
         authLoading: false,
+        authRequested: false,
       };
     case SIGN_UP_FAIL:
       return { ...state, authLoading: false, authError: action.payload };
@@ -45,6 +52,7 @@ const INITIAL_STATE = {
   authError: null,
   authLoading: null,
   name: null,
+  authRequested: false,
 };
 
 function UserProvider({ children }) {
