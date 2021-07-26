@@ -6,9 +6,9 @@ export const Logo = styled.Image`
 `;
 
 export const HeaderContainer = styled.View`
-  padding: 0.5rem 0px;
+  padding: 0.5rem 2rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 `;

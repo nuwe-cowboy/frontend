@@ -9,7 +9,6 @@ import {
   AuthInput,
   HeaderText,
   AuthFormContainer,
-  TextButton,
 } from "./Auth.styled";
 
 export function Auth() {
@@ -23,13 +22,28 @@ export function Auth() {
   return (
     <AuthBg>
       <AuthContainer>
-        <TouchableOpacity onPress={() => unRequestAuth()}>
-          <Text>X</Text>
+        <TouchableOpacity
+          onPress={() => unRequestAuth()}
+          style={{ position: "absolute", top: -20, right: -30 }}
+        >
+          <Text style={{ fontSize: 24 }}>X</Text>
         </TouchableOpacity>
-        <AuthFormContainer style={{ flex: 5 }}>
-          <HeaderText>
-            {isLogin ? "Acceso de usuario" : "Registro de usuario"}
-          </HeaderText>
+        <HeaderText>
+          {isLogin ? "Acceso de usuario" : "Registro de usuario"}
+        </HeaderText>
+        <AuthFormContainer>
+          <FormFragment
+            label="Correo electrónico"
+            placeholder="Introduce tu email"
+            value={mail}
+            onChangeText={setMail}
+          />
+          <FormFragment
+            label="Contraseña"
+            placeholder="Introduce tu contraseña"
+            value={password}
+            onChangeText={setPassword}
+          />
           {!isLogin && (
             <>
               <FormFragment
@@ -46,31 +60,15 @@ export function Auth() {
               />
             </>
           )}
-          <FormFragment
-            label="Correo electrónico"
-            placeholder="Introduce tu email"
-            value={mail}
-            onChangeText={setMail}
-          />
-          <FormFragment
-            label="Contraseña"
-            placeholder="Introduce tu contraseña"
-            value={password}
-            onChangeText={setPassword}
-          />
         </AuthFormContainer>
-        <View style={{ flex: 1, width: "100%" }}>
-          <TouchableOpacity onPress={() => setIsLogin(!isLogin)}>
-            <Text style={{ textAlign: "center", marginTop: 6 }}>
-              {isLogin
-                ? "No tengo cuenta, ir al registro"
-                : "Ya tengo cuenta, acceder"}
-            </Text>
-          </TouchableOpacity>
-          <AuthButton onPress={() => signIn()}>
-            <TextButton>acceder</TextButton>
-          </AuthButton>
-        </View>
+        <TouchableOpacity onPress={() => setIsLogin(!isLogin)}>
+          <Text style={{ textAlign: "center", marginTop: 6, fontSize: "16px" }}>
+            {isLogin
+              ? "No tengo cuenta, ir al registro"
+              : "Ya tengo cuenta, acceder"}
+          </Text>
+        </TouchableOpacity>
+        <AuthButton onPress={() => signIn()}>acceder</AuthButton>
       </AuthContainer>
     </AuthBg>
   );
@@ -78,13 +76,30 @@ export function Auth() {
 
 function FormFragment({ label, placeholder, value, onChangeText }) {
   return (
-    <>
-      <Text style={{ paddingBottom: 6 }}>{label}</Text>
+    <View
+      style={{
+        width: "100%",
+        display: "flex",
+        flexWrap: "wrap",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        marginBottom: 32,
+      }}
+    >
+      <Text
+        style={{
+          fontSize: 16,
+          fontWeight: "bold",
+        }}
+      >
+        {label}
+      </Text>
       <AuthInput
         placeholder={placeholder}
         value={value}
         onChangeText={(t) => onChangeText(t)}
       />
-    </>
+    </View>
   );
 }
