@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  ScrollView,
-  StyleSheet,
-  View,
-  Text,
-  TouchableOpacity,
-} from "react-native";
+import { ScrollView, View, Text, TouchableOpacity } from "react-native";
 import data from "../../helpers/newsData";
 import { Theme } from "../../helpers/Theme";
 import {
@@ -34,17 +28,9 @@ export function Newsletters() {
   );
 }
 
-function Newsletter(props) {
+function Newsletter({ title = "", abstract = "", uri = "" }) {
   return (
     <EventCard style={Theme.cardShadow}>
-      <NewsletterData title={props.title} abstract={props.abstract} />
-    </EventCard>
-  );
-}
-
-function NewsletterData({ title, abstract, uri }) {
-  return (
-    <>
       <View>
         <EventTitle>{title}</EventTitle>
       </View>
@@ -54,6 +40,6 @@ function NewsletterData({ title, abstract, uri }) {
           Leer más
         </Text>
       </TouchableOpacity>
-    </>
+    </EventCard>
   );
 }
