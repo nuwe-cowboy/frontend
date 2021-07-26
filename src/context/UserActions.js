@@ -44,7 +44,6 @@ function signUp(dispatch) {
     dispatch({ type: SIGN_UP_START });
     try {
       const data = await axios.post(`${apiUser}`, {
-        Headers: { Accept: "*/*" },
         User: { name, lastName, password, email },
       });
       console.log(data);
