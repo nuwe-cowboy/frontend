@@ -2,9 +2,9 @@
 
 ## Aplicación desarrollada en react native
 
-Explicar de qué va
-Poner fotos
-Link a la presentación
+ - Explicar de qué va
+ - Poner fotos
+ - Link a la presentación
 
 # Estructura de proyecto
 
