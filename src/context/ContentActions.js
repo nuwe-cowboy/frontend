@@ -1,56 +1,67 @@
 import axios from "axios";
+import { apiArticles } from "../helpers/endpoints";
 import {
-  LOG_IN_SUCCESS,
-  LOG_OFF,
-  LOG_IN_FAIL,
-  LOG_IN_START,
-  SIGN_UP_FAIL,
-  SIGN_UP_START,
-  REMOVE_AUTH_ERROR,
-  REQUEST_AUTH,
-  UNREQUEST_AUTH,
+  GET_EVENTS_START,
+  GET_EVENTS_SUCCESS,
+  GET_EVENTS_FAIL,
+  GET_NEWSLETTERS_START,
+  GET_NEWSLETTERS_SUCCESS,
+  GET_NEWSLETTERS_FAIL,
+  REMOVE_CONTENT_ERROR,
 } from "./types";
 
-function requestAuth(dispatch) {
-  return function requestAuthDispatch() {
-    dispatch({ type: REQUEST_AUTH });
-  };
-}
-
-function unRequestAuth(dispatch) {
-  return function unRequestAuthDispatch() {
-    dispatch({ type: UNREQUEST_AUTH });
-  };
-}
-
-function signIn(dispatch) {
-  return async function signInDispatch(email = "", password = "") {
-    dispatch({ type: LOG_IN_START });
+function getNewsletterList(dispatch) {
+  return async function getNewsletterListDispatch() {
+    dispatch({ type: GET_NEWSLETTERS_START });
     try {
-      // const { data } = await axios.get(`login endpoint`, {
-      //   params: { email, password },
-      // });
-      const data = "alex";
-      dispatch({ type: LOG_IN_SUCCESS, payload: data });
+      const { data } = await axios.get(`${apiArticles}`);
+      dispatch({ type: GET_NEWSLETTERS_SUCCESS, payload: data });
     } catch (error) {
-      dispatch({ type: LOG_IN_FAIL, payload: error.message });
+      dispatch({ type: GET_NEWSLETTERS_FAIL, payload: error.message });
     }
   };
 }
 
-function signUp(dispatch) {
-  return async function signUpDispatch(username, email, password) {
-    dispatch({ type: SIGN_UP_START });
-    try {
-      await axios.get(`register endpoint`, {
-        params: { username, email, password },
-      });
-      signIn(dispatch)(email, password);
-    } catch (error) {
-      dispatch({ type: SIGN_UP_FAIL, payload: error.message });
-    }
-  };
-}
+// function requestAuth(dispatch) {
+//   return function requestAuthDispatch() {
+//     dispatch({ type: REQUEST_AUTH });
+//   };
+// }
+
+// function unRequestAuth(dispatch) {
+//   return function unRequestAuthDispatch() {
+//     dispatch({ type: UNREQUEST_AUTH });
+//   };
+// }
+
+// function signIn(dispatch) {
+//   return async function signInDispatch(email = "", password = "") {
+//     dispatch({ type: LOG_IN_START });
+//     try {
+//       // const { data } = await axios.get(`login endpoint`, {
+//       //   params: { email, password },
+//       // });
+//       const data = "alex";
+//       dispatch({ type: LOG_IN_SUCCESS, payload: data });
+//     } catch (error) {
+//       dispatch({ type: LOG_IN_FAIL, payload: error.message });
+//     }
+//   };
+// }
+
+// function signUp(dispatch) {
+//   return async function signUpDispatch(username, email, password) {
+//     dispatch({ type: SIGN_UP_START });
+//     try {
+//       await axios.get(`register endpoint`, {
+//         params: { username, email, password },
+//       });
+//       signIn(dispatch)(email, password);
+//     } catch (error) {
+//       dispatch({ type: SIGN_UP_FAIL, payload: error.message });
+//     }
+//   };
+// }
 
 function logOff(dispatch) {
   return async function logOffDispatch() {
@@ -65,10 +76,7 @@ function removeAuthError(dispatch) {
 }
 
 export default {
-  requestAuth,
-  unRequestAuth,
-  signIn,
-  signUp,
+  getNewsletterList,
   logOff,
   removeAuthError,
 };
