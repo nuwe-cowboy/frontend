@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Newsletters } from "../../components";
-import { useUserActions } from "../../context";
+import {
+  useUserActions,
+  useContentActions,
+  useContentState,
+} from "../../context";
 import { MainContainer } from "./Newsletter.styled";
 
 export const Newsletter = () => {
   const { logOff } = useUserActions();
+  const { getNewsletterList } = useContentActions();
+  const { newsletterList } = useContentState();
+
+  useEffect(() => {
+    !newsletterList && getNewsletterList();
+  }, [newsletterList]);
+
   return (
     <MainContainer>
-      <Newsletters />
+      <Newsletters data={newsletterList} />
     </MainContainer>
   );
 };

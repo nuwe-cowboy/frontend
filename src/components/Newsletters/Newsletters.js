@@ -1,6 +1,5 @@
 import React from "react";
 import { ScrollView, View, Text, TouchableOpacity } from "react-native";
-import data from "../../helpers/newsData";
 import { Theme } from "../../helpers/Theme";
 import {
   EventCard,
@@ -10,19 +9,12 @@ import {
 } from "../Events/Events.styled";
 import {} from "./Newsletters.styled";
 
-export function Newsletters() {
+export function Newsletters({ data = [] }) {
   return (
     <ScrollView>
       <HeaderText>Newsletters</HeaderText>
       {data.map((e) => {
-        return (
-          <Newsletter
-            key={e.id}
-            title={e.title}
-            abstract={e.abstract}
-            uri={e.uri}
-          />
-        );
+        return <Newsletter key={e.id} title={e.title} abstract={e.body} />;
       })}
     </ScrollView>
   );
