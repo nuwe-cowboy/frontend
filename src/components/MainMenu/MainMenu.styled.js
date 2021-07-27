@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { Theme } from "../../helpers/Theme";
+import { Theme } from "../../helpers";
 
 export const NavContainer = styled.View`
   bottom: 0;

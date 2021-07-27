@@ -3,12 +3,14 @@ import "react-native-gesture-handler";
 import { registerRootComponent } from "expo";
 
 import App from "./App";
-import { UserProvider } from "./src/context/UserContext";
+import { UserProvider, ContentProvider } from "./src/context";
 
 export default function Index() {
   return (
     <UserProvider>
-      <App />
+      <ContentProvider>
+        <App />
+      </ContentProvider>
     </UserProvider>
   );
 }

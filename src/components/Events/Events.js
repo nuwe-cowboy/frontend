@@ -14,7 +14,7 @@ import {
 import * as Progress from "react-native-progress";
 
 // mock event dataset
-import data from "../../helpers/eventData";
+import { data } from "../../helpers";
 import { useUserActions, useUserState } from "../../context/UserContext";
 import { Theme } from "../../helpers/Theme";
 
