@@ -62,7 +62,7 @@ export function Auth() {
           />
         </AuthFormContainer>
         <TouchableOpacity onPress={() => setIsLogin(!isLogin)}>
-          <Text style={{ textAlign: "center", marginTop: 6, fontSize: "16px" }}>
+          <Text style={{ textAlign: "center", marginTop: 6 }}>
             {isLogin
               ? "No tengo cuenta, ir al registro"
               : "Ya tengo cuenta, acceder"}
