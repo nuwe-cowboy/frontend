@@ -13,7 +13,7 @@ export function Newsletters({ data = [] }) {
   return (
     <ScrollView>
       <HeaderText>Newsletters</HeaderText>
-      {data.map((e) => {
+      {data?.map((e) => {
         return <Newsletter key={e.id} title={e.title} abstract={e.body} />;
       })}
     </ScrollView>
