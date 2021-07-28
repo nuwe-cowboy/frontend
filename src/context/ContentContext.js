@@ -8,6 +8,9 @@ import {
   GET_NEWSLETTERS_START,
   GET_NEWSLETTERS_SUCCESS,
   GET_NEWSLETTERS_FAIL,
+  GET_A_NEWSLETTER_START,
+  GET_A_NEWSLETTER_SUCCESS,
+  GET_A_NEWSLETTER_FAIL,
   REMOVE_CONTENT_ERROR,
 } from "./types";
 
@@ -31,6 +34,20 @@ function contentReducer(state, action) {
         newsletterList: action.payload,
       };
     case GET_NEWSLETTERS_FAIL:
+      return { ...state, contentLoading: false, contentError: action.payload };
+    case GET_A_NEWSLETTER_START:
+      return {
+        ...state,
+        contentLoading: true,
+        selectedNewsletterIndex: action.payload.index,
+      };
+    case GET_A_NEWSLETTER_SUCCESS:
+      return {
+        ...state,
+        contentLoading: false,
+        newsletterList: action.payload,
+      };
+    case GET_A_NEWSLETTER_FAIL:
       return { ...state, contentLoading: false, contentError: action.payload };
     case REMOVE_CONTENT_ERROR:
       return { ...state, contentError: null };

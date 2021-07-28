@@ -7,6 +7,9 @@ import {
   GET_NEWSLETTERS_START,
   GET_NEWSLETTERS_SUCCESS,
   GET_NEWSLETTERS_FAIL,
+  GET_A_NEWSLETTER_START,
+  GET_A_NEWSLETTER_SUCCESS,
+  GET_A_NEWSLETTER_FAIL,
   REMOVE_CONTENT_ERROR,
 } from "./types";
 
@@ -18,6 +21,17 @@ function getNewsletterList(dispatch) {
       dispatch({ type: GET_NEWSLETTERS_SUCCESS, payload: data });
     } catch (error) {
       dispatch({ type: GET_NEWSLETTERS_FAIL, payload: error.message });
+    }
+  };
+}
+
+function getNewsletter(dispatch) {
+  return async function getNewsletterDispatch(index) {
+    dispatch({ type: GET_A_NEWSLETTER_START, payload: index });
+    try {
+      dispatch({ type: GET_A_NEWSLETTER_SUCCESS });
+    } catch (error) {
+      dispatch({ type: GET_A_NEWSLETTER_FAIL, payload: error.message });
     }
   };
 }
@@ -77,6 +91,7 @@ function removeAuthError(dispatch) {
 
 export default {
   getNewsletterList,
+  getNewsletter,
   logOff,
   removeAuthError,
 };
