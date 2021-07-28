@@ -1,8 +1,7 @@
 import React from "react";
 import { ScrollView, View, Text } from "react-native";
+import { Card } from "../ANuweComponents";
 import {
-  EventActionBtn,
-  EventCard,
   EventGoal,
   EventTitle,
   HeaderText,
@@ -17,6 +16,7 @@ import * as Progress from "react-native-progress";
 import { data } from "../../helpers";
 import { useUserActions, useUserState } from "../../context/UserContext";
 import { Theme } from "../../helpers/Theme";
+import { MainButton } from "../ANuweComponents/MainButton/MainButton";
 
 export function Events() {
   return (
@@ -41,7 +41,7 @@ export function Events() {
 
 function Event(props) {
   return (
-    <EventCard style={Theme.cardShadow}>
+    <Card style={Theme.cardShadow}>
       <EventData
         title={props.title}
         goal={props.goal}
@@ -52,7 +52,7 @@ function Event(props) {
         isParticipating={props.isParticipating}
         dorsal={props.dorsal}
       />
-    </EventCard>
+    </Card>
   );
 }
 
@@ -94,8 +94,8 @@ function EventUserState({ isParticipating, dorsal }) {
         )}
       </Text>
 
-      <EventActionBtn
-        adder={isParticipating}
+      <MainButton
+        secondary={isParticipating}
         onPress={() =>
           loggedIn
             ? console.log(isParticipating ? "Add kms" : "Get new dorsal")
@@ -103,7 +103,7 @@ function EventUserState({ isParticipating, dorsal }) {
         }
       >
         <TextButton>{isParticipating ? "sumar kms" : "registrarme"}</TextButton>
-      </EventActionBtn>
+      </MainButton>
     </EventUserStateContainer>
   );
 }
