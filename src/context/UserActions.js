@@ -1,4 +1,5 @@
 import axios from "axios";
+import { apiUser } from "../helpers/endpoints";
 import {
   LOG_IN_SUCCESS,
   LOG_OFF,
@@ -39,12 +40,13 @@ function signIn(dispatch) {
 }
 
 function signUp(dispatch) {
-  return async function signUpDispatch(username, email, password) {
+  return async function signUpDispatch(name, lastName, password, email) {
     dispatch({ type: SIGN_UP_START });
     try {
-      await axios.get(`register endpoint`, {
-        params: { username, email, password },
+      const data = await axios.post(`${apiUser}`, {
+        User: { name, lastName, password, email },
       });
+      console.log(data);
       signIn(dispatch)(email, password);
     } catch (error) {
       dispatch({ type: SIGN_UP_FAIL, payload: error.message });

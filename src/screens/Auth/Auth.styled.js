@@ -58,6 +58,9 @@ export const AuthButton = styled.TouchableOpacity`
   border-radius: 5px;
   border-color: ${Theme.secondary};
   text-align: center;
+`;
+
+export const AuthButtonText = styled.Text`
   color: #fff;
   font-variant: small-caps;
   font-weight: 600;
