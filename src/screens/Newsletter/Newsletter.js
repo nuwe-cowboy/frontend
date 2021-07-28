@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import { Newsletters } from "../../components";
+import { ScrollView } from "react-native";
+import { NewsletterCard, NText } from "../../components";
 import {
   useUserActions,
   useContentActions,
@@ -18,7 +19,18 @@ export const Newsletter = () => {
 
   return (
     <MainContainer>
-      <Newsletters data={newsletterList} />
+      <ScrollView>
+        <NText title>Newsletters</NText>
+        {newsletterList?.map((e) => {
+          return (
+            <NewsletterCard
+              key={e.id}
+              title={e.title}
+              abstract={"getNewsletterAbstract(e.body, 140)"}
+            />
+          );
+        })}
+      </ScrollView>
     </MainContainer>
   );
 };
