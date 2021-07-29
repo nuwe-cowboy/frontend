@@ -15,6 +15,7 @@ const ContentStateContext = React.createContext();
 const ContentDispatchContext = React.createContext();
 
 function contentReducer(state, action) {
+  console.log({ action });
   switch (action.type) {
     case GET_EVENTS_START:
       return { ...state, contentLoading: true };

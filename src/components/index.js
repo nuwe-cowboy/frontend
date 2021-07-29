@@ -1,4 +1,4 @@
-export * from "./ANuweComponents";
+export * from "./NuweComponents";
 export * from "./Events";
 export * from "./MainMenu";
 export * from "./Header";

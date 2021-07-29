@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledText } from "./Typography.styled";
+import { StyledText } from "./NText.styled";
 
 export function NText({
   style = {},

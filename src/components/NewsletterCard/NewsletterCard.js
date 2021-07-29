@@ -3,12 +3,12 @@ import { ScrollView, View, Text, TouchableOpacity } from "react-native";
 import { getNewsletterAbstract } from "../../helpers";
 import { Theme } from "../../helpers/Theme";
 import { EventCard, EventText, EventTitle } from "../Events/Events.styled";
-import { Card } from "../ANuweComponents";
+import { NCard } from "../NuweComponents";
 import {} from "./NewsletterCard.styled";
 
 export function NewsletterCard({ title = "", abstract = "", uri = "" }) {
   return (
-    <Card style={Theme.cardShadow}>
+    <NCard style={Theme.cardShadow}>
       <View>
         <EventTitle>{title}</EventTitle>
       </View>
@@ -18,6 +18,6 @@ export function NewsletterCard({ title = "", abstract = "", uri = "" }) {
           Leer más
         </Text>
       </TouchableOpacity>
-    </Card>
+    </NCard>
   );
 }
