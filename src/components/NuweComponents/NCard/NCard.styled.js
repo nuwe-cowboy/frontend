@@ -6,10 +6,9 @@ export const StyledCard = styled.View`
   ${(props) =>
     props.wide
       ? "width: 100%; max-width: 90vw;"
-      : "min-width: 350px; max-width: 600px;"}
+      : "min-width: 350px; max-width: 600px; flex: 1;"}
   margin: 0.5rem;
   border-radius: 5px;
-  flex: 1;
   background: ${Theme.background};
   align-self: center;
   text-overflow: ellipsis;
