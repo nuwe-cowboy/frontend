@@ -42,7 +42,7 @@ export function Events() {
 
 function Event(props) {
   return (
-    <NCard style={Theme.cardShadow}>
+    <NCard>
       <EventData
         title={props.title}
         goal={props.goal}
