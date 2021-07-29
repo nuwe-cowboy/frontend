@@ -6,14 +6,20 @@ import { EventCard, EventText, EventTitle } from "../Events/Events.styled";
 import { NCard } from "../NuweComponents";
 import {} from "./NewsletterCard.styled";
 
-export function NewsletterCard({ title = "", abstract = "", uri = "" }) {
+export function NewsletterCard({
+  title = "",
+  abstract = "",
+  uri = "",
+  idx = 0,
+  setSelected = 0,
+}) {
   return (
-    <NCard style={Theme.cardShadow}>
+    <NCard>
       <View>
         <EventTitle>{title}</EventTitle>
       </View>
       <EventText>{abstract}</EventText>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => setSelected(idx)}>
         <Text style={{ color: Theme.primary, textAlign: "right" }}>
           Leer más
         </Text>
