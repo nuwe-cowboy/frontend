@@ -1,6 +1,6 @@
 import React from "react";
 import { ScrollView, View, Text } from "react-native";
-import { NCard, NButton } from "../NuweComponents";
+import { NCard, NButton, NGrid } from "../NuweComponents";
 import {
   EventGoal,
   EventTitle,
@@ -21,19 +21,21 @@ export function Events() {
   return (
     <ScrollView>
       <HeaderText>Eventos activos</HeaderText>
-      {data.map((e) => {
-        return (
-          <Event
-            key={e.id}
-            title={e.title}
-            goal={e.goal}
-            acum={e.acum}
-            description={e.description}
-            isParticipating={e.isParticipating}
-            dorsal={e.dorsal}
-          />
-        );
-      })}
+      <NGrid>
+        {data.map((e) => {
+          return (
+            <Event
+              key={e.id}
+              title={e.title}
+              goal={e.goal}
+              acum={e.acum}
+              description={e.description}
+              isParticipating={e.isParticipating}
+              dorsal={e.dorsal}
+            />
+          );
+        })}
+      </NGrid>
     </ScrollView>
   );
 }
