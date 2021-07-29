@@ -10,4 +10,3 @@ export const StyledGrid = styled.View`
   width: 90%;
   max-width: 2000px;
 `;
-// display: "flex", flexDirection: "row", flexWrap: "wrap",
