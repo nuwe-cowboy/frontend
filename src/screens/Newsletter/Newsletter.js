@@ -1,17 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { ScrollView } from "react-native";
-import { NewsletterCard, NText } from "../../components";
-import {
-  useUserActions,
-  useContentActions,
-  useContentState,
-} from "../../context";
+import { NewsletterCard, NGrid, NText, Article } from "../../components";
+import { useContentActions, useContentState } from "../../context";
 import { MainContainer } from "./Newsletter.styled";
 
 export const Newsletter = () => {
-  const { logOff } = useUserActions();
   const { getNewsletterList } = useContentActions();
   const { newsletterList } = useContentState();
+  const [selectedIndex, setSelectedIndex] = useState(false);
 
   useEffect(() => {
     !newsletterList && getNewsletterList();
@@ -21,15 +17,26 @@ export const Newsletter = () => {
     <MainContainer>
       <ScrollView>
         <NText title>Newsletters</NText>
-        {newsletterList?.map((e) => {
-          return (
-            <NewsletterCard
-              key={e.id}
-              title={e.title}
-              abstract={"getNewsletterAbstract(e.body, 140)"}
-            />
-          );
-        })}
+        {selectedIndex || selectedIndex === 0 ? (
+          <Article
+            setSelected={setSelectedIndex}
+            article={newsletterList[selectedIndex]}
+          ></Article>
+        ) : (
+          <NGrid>
+            {newsletterList?.map((e, idx) => {
+              return (
+                <NewsletterCard
+                  setSelected={setSelectedIndex}
+                  key={e.id}
+                  idx={idx}
+                  title={e.title}
+                  abstract={e.body}
+                />
+              );
+            })}
+          </NGrid>
+        )}
       </ScrollView>
     </MainContainer>
   );
