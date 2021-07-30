@@ -24,7 +24,7 @@ export function Auth() {
       <AuthContainer>
         <TouchableOpacity
           onPress={() => unRequestAuth()}
-          style={{ position: "absolute", top: -20, right: -30 }}
+          style={{ position: "absolute", top: 10, right: 15 }}
         >
           <Text style={{ fontSize: 24 }}>X</Text>
         </TouchableOpacity>
