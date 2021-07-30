@@ -8,5 +8,6 @@ export const StyledText = styled.Text`
       : props.subtitle
       ? Theme.font.medium
       : Theme.font.small};
-  ${(props) => (props.title || props.subtitle) && "font-weight:  bold"};
+  ${(props) =>
+    (props.title || props.subtitle) && "font-weight:  bold; padding: 1rem 0;"};
 `;

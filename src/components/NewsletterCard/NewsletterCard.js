@@ -20,7 +20,13 @@ export function NewsletterCard({
       </View>
       <EventText numberOfLines={3}>{abstract}</EventText>
       <TouchableOpacity onPress={() => setSelected(idx)}>
-        <Text style={{ color: Theme.primary, textAlign: "right" }}>
+        <Text
+          style={{
+            color: Theme.primary,
+            textAlign: "right",
+            paddingTop: "1rem",
+          }}
+        >
           Leer más
         </Text>
       </TouchableOpacity>

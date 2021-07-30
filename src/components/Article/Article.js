@@ -11,7 +11,7 @@ export function Article({ setSelected, article }) {
           <NText style={{ color: "white" }}>Volver</NText>
         </NButton>
         <NText title>{title}</NText>
-        <NText>{body}</NText>
+        <NText style={{ paddingBottom: "1rem" }}>{body}</NText>
         <NButton onPress={() => setSelected(false)}>
           <NText style={{ color: "white" }}>Volver</NText>
         </NButton>
