@@ -1,16 +1,13 @@
-import React, { useEffect } from "react";
-import { Newsletters } from "../../components";
-import {
-  useUserActions,
-  useContentActions,
-  useContentState,
-} from "../../context";
+import React, { useEffect, useState } from "react";
+import { ScrollView } from "react-native";
+import { NewsletterCard, NGrid, NText, Article } from "../../components";
+import { useContentActions, useContentState } from "../../context";
 import { MainContainer } from "./Newsletter.styled";
 
 export const Newsletter = () => {
-  const { logOff } = useUserActions();
   const { getNewsletterList } = useContentActions();
   const { newsletterList } = useContentState();
+  const [selectedIndex, setSelectedIndex] = useState(false);
 
   useEffect(() => {
     !newsletterList && getNewsletterList();
@@ -18,7 +15,29 @@ export const Newsletter = () => {
 
   return (
     <MainContainer>
-      <Newsletters data={newsletterList} />
+      <ScrollView>
+        <NText title>Newsletters</NText>
+        {selectedIndex || selectedIndex === 0 ? (
+          <Article
+            setSelected={setSelectedIndex}
+            article={newsletterList[selectedIndex]}
+          ></Article>
+        ) : (
+          <NGrid>
+            {newsletterList?.map((e, idx) => {
+              return (
+                <NewsletterCard
+                  setSelected={setSelectedIndex}
+                  key={e.id}
+                  idx={idx}
+                  title={e.title}
+                  abstract={e.body}
+                />
+              );
+            })}
+          </NGrid>
+        )}
+      </ScrollView>
     </MainContainer>
   );
 };
