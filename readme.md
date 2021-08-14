@@ -98,13 +98,13 @@ $ expo web
 
 ## Links
 ### Git
-- [Frontend Repository](https://github.com/nuwe-cowboy/frontend)
-- [Backend Repository](https://github.com/nuwe-cowboy/backend)
+- [Git Frontend Repository](https://github.com/nuwe-cowboy/frontend)
+- [Git Backend Repository](https://github.com/nuwe-cowboy/backend)
 
 
 ### Deploy
-- [Frontend Repository](https://muevete.netlify.app/)
-- [Backend Repository](https://mplqnp.herokuapp.com/)
+- [Deploy Frontend Repository](https://muevete.netlify.app/)
+- [Deploy Backend Repository](https://mplqnp.herokuapp.com/)
 
 
 
