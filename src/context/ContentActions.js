@@ -1,5 +1,6 @@
 import axios from "axios";
 import { apiArticles } from "../helpers/endpoints";
+import { apiEvents } from "../helpers/endpoints";
 import {
   GET_EVENTS_START,
   GET_EVENTS_SUCCESS,
@@ -18,6 +19,18 @@ function getNewsletterList(dispatch) {
       dispatch({ type: GET_NEWSLETTERS_SUCCESS, payload: data });
     } catch (error) {
       dispatch({ type: GET_NEWSLETTERS_FAIL, payload: error.message });
+    }
+  };
+}
+
+function getEventsFromAPI(dispatch) {
+  return async function getEventsListDispatch() {
+    dispatch({ type: GET_EVENTS_START });
+    try {
+      const { data } = await axios.get(`${apiEvents}`);
+      dispatch({ type: GET_EVENTS_SUCCESS, payload: data });
+    } catch (error) {
+      dispatch({ type: GET_EVENTS_FAIL, payload: error.message });
     }
   };
 }
