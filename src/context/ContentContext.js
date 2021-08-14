@@ -19,7 +19,11 @@ function contentReducer(state, action) {
     case GET_EVENTS_START:
       return { ...state, contentLoading: true };
     case GET_EVENTS_SUCCESS:
-      return { ...state, contentLoading: false, eventList: action.payload };
+      return { 
+        ...state, 
+        contentLoading: false, 
+        eventList: action.payload 
+      };
     case GET_EVENTS_FAIL:
       return { ...state, contentLoading: false, contentError: action.payload };
     case GET_NEWSLETTERS_START:

@@ -90,6 +90,7 @@ function removeAuthError(dispatch) {
 
 export default {
   getNewsletterList,
+  getEventsFromAPI,
   logOff,
   removeAuthError,
 };
