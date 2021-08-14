@@ -1,6 +1,8 @@
 export const Theme = {
   primary: "#3CB2EE",
-  secondary: "#0290D8",
+  primaryDark: "#0290D8",
+  secondary: "#81C153",
+  secondaryDark: "#68AC38",
   background: "#fafafa",
   borderInput: "#b5b5b5",
   cardShadow: {
@@ -18,4 +20,5 @@ export const Theme = {
     flexDirection: "row",
     justifyContent: "space-between",
   },
+  font: { small: "12px", medium: "14px", large: "24px" },
 };
