@@ -103,8 +103,8 @@ $ expo web
 
 
 ### Deploy
-- [Deploy Frontend Repository](https://muevete.netlify.app/)
-- [Deploy Backend Repository](https://mplqnp.herokuapp.com/)
+- [Frontend Deploy](https://muevete.netlify.app/)
+- [Backend Deploy](https://mplqnp.herokuapp.com/)
 
 
 
