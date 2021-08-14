@@ -1,10 +1,17 @@
-# Frontend
+# Summer Coding League Project - "Muévete por los que no pueden"
 
-## Aplicación desarrollada en react native
+## Descripción 
+**Mobile App**: En "Muévete por los que no pueden", realizan eventos deportivos y por lo tanto necesitan una aplicación (tanto web como móvil) para gestionar todos estos acontecimientos.  
 
- - Explicar de qué va
- - Poner fotos
- - Link a la presentación
+
+## Stack Tecnológico
+- [React native](https://reactnative.dev/)
+- [Netlify](https://netlify.app/)
+- HTML
+- CSS
+- Node
+- Api Rest
+
 
 # Estructura de proyecto
 
@@ -62,17 +69,39 @@ Comando para conseguirlo: `tree -a -I '.git|__tests__|.expo|android|ios|node_mod
 # Para desarrolladores
 
 ### Requisitos
+- Node / Yarn
+- Expo
+- Instalar configurar el entorno de desarrollo de [react native](https://reactnative.dev/docs/environment-setup)
 
-node, yarn (en caso de no poder usarlo, pm) y expo
+
 
 ### Entorno de desarrollo
 
-- Clona el proyecto a tu ordenador: `git clone git@github.com:nuwe-cowboy/frontend.git`
-- Instala los paquetes necesarios: `yarn` o `npm install` (yarn es el manejador de paquetes preferido para este proyecto)
-- Ya puedes correr el proyecto: `expo web`
+- Clona el proyecto a tu ordenador: 
+```
+$ git clone git@github.com:nuwe-cowboy/frontend.git
+```
+
+- Instala los paquetes necesarios: yarn o npm:
+``` 
+$ npm install
+```
+- o bien 
+``` 
+$ yarn install
+```
+
+- Ejecutar proyecto: 
+``` 
+$ expo web 
+```
 
 ### Contribuir
 
 - Crea una rama con un nombre significativo a los cambios que vayas a hacer: `git checkout -b mi-nueva-funcionalidad`
 - haz push de tus cambios en esa rama: `git push -u origin mi-nueva-funcionalidad` la primera vez, `git push` a partir de la segunda
-- Cuando tus cambios estén listos, crea un pull request desde [aquí](https://github.com/nuwe-cowboy/frontend/pulls)
+- Cuando tus cambios estén listos, crea un pull request desde [aquí](https://github.com/nuwe-cowboy/frontend/pulls).
+
+
+
+Made with :heart: by Nuwe Cowboy Team
