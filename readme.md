@@ -15,8 +15,6 @@
 
 # Estructura de proyecto
 
-Comando para conseguirlo: `tree -a -I '.git|__tests__|.expo|android|ios|node_modules|web-build'`, borrar también archivos de configuración después.
-
 ```bash
 ├── App.js
 ├── index.js
@@ -71,8 +69,7 @@ Comando para conseguirlo: `tree -a -I '.git|__tests__|.expo|android|ios|node_mod
 ### Requisitos
 - Node / Yarn
 - Expo
-- Instalar configurar el entorno de desarrollo de [react native](https://reactnative.dev/docs/environment-setup)
-
+- Configurar el entorno de desarrollo de [react native](https://reactnative.dev/docs/environment-setup)
 
 
 ### Entorno de desarrollo
@@ -96,12 +93,19 @@ $ yarn install
 $ expo web 
 ```
 
-### Contribuir
+### ¿Quieres contribuir?
 
-- Crea una rama con un nombre significativo a los cambios que vayas a hacer: `git checkout -b mi-nueva-funcionalidad`
-- haz push de tus cambios en esa rama: `git push -u origin mi-nueva-funcionalidad` la primera vez, `git push` a partir de la segunda
-- Cuando tus cambios estén listos, crea un pull request desde [aquí](https://github.com/nuwe-cowboy/frontend/pulls).
+- Crea una rama con un nombre significativo a los cambios que vayas a hacer: 
+```
+git checkout -b mi-nueva-funcionalidad
+```
 
+- Pushear los cambios de tu rama: 
+``` 
+git push -u origin mi-nueva-funcionalidad
+```
 
-
+- Cuando tus cambios estén listos, crea un pull request desde [aquí](https://github.com/nuwe-cowboy/frontend/pulls).  
+  
+  
 Made with :heart: by Nuwe Cowboy Team
