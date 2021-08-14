@@ -1,8 +1,7 @@
 import React from "react";
 import { ScrollView, View, Text } from "react-native";
+import { NCard, NButton, NGrid } from "../NuweComponents";
 import {
-  EventActionBtn,
-  EventCard,
   EventGoal,
   EventTitle,
   HeaderText,
@@ -22,26 +21,28 @@ export function Events() {
   return (
     <ScrollView>
       <HeaderText>Eventos activos</HeaderText>
-      {data.map((e) => {
-        return (
-          <Event
-            key={e.id}
-            title={e.title}
-            goal={e.goal}
-            acum={e.acum}
-            description={e.description}
-            isParticipating={e.isParticipating}
-            dorsal={e.dorsal}
-          />
-        );
-      })}
+      <NGrid>
+        {data.map((e) => {
+          return (
+            <Event
+              key={e.id}
+              title={e.title}
+              goal={e.goal}
+              acum={e.acum}
+              description={e.description}
+              isParticipating={e.isParticipating}
+              dorsal={e.dorsal}
+            />
+          );
+        })}
+      </NGrid>
     </ScrollView>
   );
 }
 
 function Event(props) {
   return (
-    <EventCard style={Theme.cardShadow}>
+    <NCard>
       <EventData
         title={props.title}
         goal={props.goal}
@@ -52,7 +53,7 @@ function Event(props) {
         isParticipating={props.isParticipating}
         dorsal={props.dorsal}
       />
-    </EventCard>
+    </NCard>
   );
 }
 
@@ -94,8 +95,8 @@ function EventUserState({ isParticipating, dorsal }) {
         )}
       </Text>
 
-      <EventActionBtn
-        adder={isParticipating}
+      <NButton
+        secondary={isParticipating}
         onPress={() =>
           loggedIn
             ? console.log(isParticipating ? "Add kms" : "Get new dorsal")
@@ -103,7 +104,7 @@ function EventUserState({ isParticipating, dorsal }) {
         }
       >
         <TextButton>{isParticipating ? "sumar kms" : "registrarme"}</TextButton>
-      </EventActionBtn>
+      </NButton>
     </EventUserStateContainer>
   );
 }
