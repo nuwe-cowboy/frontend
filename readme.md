@@ -1,4 +1,5 @@
-# Summer Coding League Project - "Muévete por los que no pueden"
+# Summer Coding League Project 
+## "Muévete por los que no pueden"
 
 ## Descripción 
 **Mobile App**: En "Muévete por los que no pueden", realizan eventos deportivos y por lo tanto necesitan una aplicación (tanto web como móvil) para gestionar todos estos acontecimientos.  
