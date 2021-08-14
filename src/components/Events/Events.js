@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect, useState }  from "react";
 import { ScrollView, View, Text } from "react-native";
 import { NCard, NButton, NGrid } from "../NuweComponents";
+import { getEventsAbstract } from "../../helpers";
+import { useContentActions, useContentState } from "../../context";
+import { EventCard } from "../EventCard/EventCard";
 import {
   EventGoal,
   EventTitle,
@@ -12,31 +15,49 @@ import {
 } from "./Events.styled";
 import * as Progress from "react-native-progress";
 
-// mock event dataset
 import { data } from "../../helpers";
 import { useUserActions, useUserState } from "../../context/UserContext";
 import { Theme } from "../../helpers/Theme";
 
 export function Events() {
+  const { getEventsFromAPI } = useContentActions();
+  const { eventList } = useContentState();
+  const [selectedIndex, setSelectedIndex] = useState(false);
+
+  useEffect(() => {
+    !eventList && getEventsFromAPI();
+  }, [eventList]);
+
   return (
-    <ScrollView>
-      <HeaderText>Eventos activos</HeaderText>
-      <NGrid>
-        {data.map((e) => {
-          return (
-            <Event
-              key={e.id}
-              title={e.title}
-              goal={e.goal}
-              acum={e.acum}
-              description={e.description}
-              isParticipating={e.isParticipating}
-              dorsal={e.dorsal}
-            />
-          );
-        })}
-      </NGrid>
-    </ScrollView>
+      <ScrollView>
+        <HeaderText>Eventos activos</HeaderText>
+        {selectedIndex || selectedIndex === 0 ? (
+          <Article
+            setSelected={setSelectedIndex}
+            article={eventList[selectedIndex]}
+          ></Article>
+        ) : (
+          <NGrid>
+            {eventList?.map((e, idx) => {
+              return (
+                <Event
+                  setSelected={setSelectedIndex}
+                  body={e.body}
+                  key={e.id}
+                  idx={idx}
+                  title={e.title}
+                  abstract={e.body}
+                  goal={e.goal}
+                  acum={e.acum}
+                  description={e.description}
+                  isParticipating={e.isParticipating}
+                  dorsal="2354"
+                />
+              );
+            })}
+          </NGrid>
+        )}
+      </ScrollView>
   );
 }
 
@@ -45,6 +66,7 @@ function Event(props) {
     <NCard>
       <EventData
         title={props.title}
+        body={props.body}
         goal={props.goal}
         acum={props.acum}
         description={props.description}
@@ -57,12 +79,12 @@ function Event(props) {
   );
 }
 
-function EventData({ title, goal, acum, description }) {
+function EventData({ title, goal, acum, body }) {
   return (
     <>
       <View style={Theme.flexView}>
         <EventTitle>{title}</EventTitle>
-        <EventGoal>{goal} kms</EventGoal>
+        <EventGoal>{goal} 3000 kms</EventGoal>
       </View>
       <EventProgress>
         <Progress.Bar
@@ -74,7 +96,7 @@ function EventData({ title, goal, acum, description }) {
           borderWidth={0}
         />
       </EventProgress>
-      <EventText>{description}</EventText>
+      <EventText>{body}</EventText>
     </>
   );
 }
