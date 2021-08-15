@@ -107,7 +107,7 @@ $ expo web
 - [Backend Deploy](https://mplqnp.herokuapp.com/)
 
 ### Presentación
-- [Slides presentación](https://slides.com/elenapiaggio/summercodingleague/#/muvete-por-los-que-no-pueden)
+- [Slides presentación](https://slides.com/elenapiaggio/summercodingleague/fullscreen#/0/9)
 
 ### ¿Quieres contribuir?
 
