@@ -106,7 +106,8 @@ $ expo web
 - [Frontend Deploy](https://muevete.netlify.app/)
 - [Backend Deploy](https://mplqnp.herokuapp.com/)
 
-
+### Presentación
+- [Slides presentación](https://slides.com/elenapiaggio/summercodingleague/#/muvete-por-los-que-no-pueden)
 
 ### ¿Quieres contribuir?
 
