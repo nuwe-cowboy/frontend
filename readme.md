@@ -3,7 +3,9 @@
 
 
 ## Descripción 
-**Mobile App**: En "Muévete por los que no pueden", realizan eventos deportivos y por lo tanto necesitan una aplicación (tanto web como móvil) para gestionar todos estos acontecimientos.  
+[Muévete por los que no pueden](https://mueveteporlosquenopueden.org/) es una organización sin ánimo de lucro conducida por voluntarios. Sus objetivos son divulgar y concienciar sobre las enfermedades raras o minoritarias, recaudar fondos para su investigación e impulsar el deporte.
+
+Necesitan una aplicación web y móvil que sea accesible y les ayude a automatizar procesos que actualmente realizan de forma manual.
 
 
 ## Stack Tecnológico
