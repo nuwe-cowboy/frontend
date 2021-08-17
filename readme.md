@@ -13,7 +13,7 @@ Necesitan una aplicación web y móvil que sea accesible y les ayude a automatiz
 - [Netlify](https://netlify.app/)
 - HTML
 - CSS
-- Node
+- [Node](https://nodejs.org/es/)
 - Api Rest
 
 
